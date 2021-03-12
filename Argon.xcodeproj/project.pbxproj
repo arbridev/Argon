@@ -15,6 +15,9 @@
 		147358F025FB0C9C00489AA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 147358EE25FB0C9B00489AA7 /* LaunchScreen.storyboard */; };
 		147358FB25FB0C9C00489AA7 /* ArgonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147358FA25FB0C9C00489AA7 /* ArgonTests.swift */; };
 		1473590625FB0C9C00489AA7 /* ArgonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473590525FB0C9C00489AA7 /* ArgonUITests.swift */; };
+		1473591E25FB107000489AA7 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473591D25FB107000489AA7 /* PersistenceManager.swift */; };
+		1473594625FB151500489AA7 /* CouchbaseLiteSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1473594125FB151200489AA7 /* CouchbaseLiteSwift.framework */; };
+		1473594725FB151500489AA7 /* CouchbaseLiteSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1473594125FB151200489AA7 /* CouchbaseLiteSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1473594825FB151500489AA7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1473594725FB151500489AA7 /* CouchbaseLiteSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		147358E025FB0C9900489AA7 /* Argon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Argon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		147358E325FB0C9900489AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +66,8 @@
 		1473590125FB0C9C00489AA7 /* ArgonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArgonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1473590525FB0C9C00489AA7 /* ArgonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgonUITests.swift; sourceTree = "<group>"; };
 		1473590725FB0C9C00489AA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1473591D25FB107000489AA7 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		1473594125FB151200489AA7 /* CouchbaseLiteSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLiteSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1473594625FB151500489AA7 /* CouchbaseLiteSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +119,8 @@
 		147358E225FB0C9900489AA7 /* Argon */ = {
 			isa = PBXGroup;
 			children = (
+				1473591C25FB105500489AA7 /* Persistence */,
+				1473591625FB0CB300489AA7 /* Frameworks */,
 				147358E325FB0C9900489AA7 /* AppDelegate.swift */,
 				147358E525FB0C9900489AA7 /* SceneDelegate.swift */,
 				147358E725FB0C9900489AA7 /* ViewController.swift */,
@@ -128,6 +150,22 @@
 			path = ArgonUITests;
 			sourceTree = "<group>";
 		};
+		1473591625FB0CB300489AA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1473594125FB151200489AA7 /* CouchbaseLiteSwift.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		1473591C25FB105500489AA7 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				1473591D25FB107000489AA7 /* PersistenceManager.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +176,7 @@
 				147358DC25FB0C9800489AA7 /* Sources */,
 				147358DD25FB0C9800489AA7 /* Frameworks */,
 				147358DE25FB0C9800489AA7 /* Resources */,
+				1473594825FB151500489AA7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,6 +300,7 @@
 				147358E825FB0C9900489AA7 /* ViewController.swift in Sources */,
 				147358E425FB0C9900489AA7 /* AppDelegate.swift in Sources */,
 				147358E625FB0C9900489AA7 /* SceneDelegate.swift in Sources */,
+				1473591E25FB107000489AA7 /* PersistenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,11 +477,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Argon/External",
+					"$(PROJECT_DIR)/Argon/Frameworks",
+				);
 				INFOPLIST_FILE = Argon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.arbridev.Argon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -455,11 +502,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Argon/External",
+					"$(PROJECT_DIR)/Argon/Frameworks",
+				);
 				INFOPLIST_FILE = Argon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.arbridev.Argon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
