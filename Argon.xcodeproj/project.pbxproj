@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D8E3569E20BF708E4BB75A0 /* Pods_Argon_ArgonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CC9B9B64863D2EBDE79973 /* Pods_Argon_ArgonUITests.framework */; };
 		147358E425FB0C9900489AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147358E325FB0C9900489AA7 /* AppDelegate.swift */; };
 		147358E625FB0C9900489AA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147358E525FB0C9900489AA7 /* SceneDelegate.swift */; };
 		147358E825FB0C9900489AA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147358E725FB0C9900489AA7 /* ViewController.swift */; };
@@ -18,6 +19,12 @@
 		1473591E25FB107000489AA7 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473591D25FB107000489AA7 /* PersistenceManager.swift */; };
 		1473594625FB151500489AA7 /* CouchbaseLiteSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1473594125FB151200489AA7 /* CouchbaseLiteSwift.framework */; };
 		1473594725FB151500489AA7 /* CouchbaseLiteSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1473594125FB151200489AA7 /* CouchbaseLiteSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1473595625FB18AE00489AA7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473595525FB18AE00489AA7 /* NetworkManager.swift */; };
+		1473596725FB1CF200489AA7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473596625FB1CF200489AA7 /* AppData.swift */; };
+		1473596D25FB1D4900489AA7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473596C25FB1D4900489AA7 /* User.swift */; };
+		1473597125FB1D7A00489AA7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473597025FB1D7A00489AA7 /* Post.swift */; };
+		3834BCC2D014C36F23D6FA8C /* Pods_ArgonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E0CFADD9E3A51DBD69A250F /* Pods_ArgonTests.framework */; };
+		9890B5EF529C2FDA39AF23EC /* Pods_Argon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABB7F007521D31989C3AFF2 /* Pods_Argon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04CC9B9B64863D2EBDE79973 /* Pods_Argon_ArgonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Argon_ArgonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		147358E025FB0C9900489AA7 /* Argon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Argon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		147358E325FB0C9900489AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		147358E525FB0C9900489AA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +76,18 @@
 		1473590725FB0C9C00489AA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1473591D25FB107000489AA7 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		1473594125FB151200489AA7 /* CouchbaseLiteSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLiteSwift.framework; sourceTree = "<group>"; };
+		1473595525FB18AE00489AA7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1473596625FB1CF200489AA7 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		1473596C25FB1D4900489AA7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1473597025FB1D7A00489AA7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		4F9525220F0AE521E87C4DB4 /* Pods-Argon-ArgonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argon-ArgonUITests.release.xcconfig"; path = "Target Support Files/Pods-Argon-ArgonUITests/Pods-Argon-ArgonUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5B1B620B86E63952D360E6BD /* Pods-Argon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argon.debug.xcconfig"; path = "Target Support Files/Pods-Argon/Pods-Argon.debug.xcconfig"; sourceTree = "<group>"; };
+		68E8B7143BDAAAAACE1FB55E /* Pods-Argon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argon.release.xcconfig"; path = "Target Support Files/Pods-Argon/Pods-Argon.release.xcconfig"; sourceTree = "<group>"; };
+		6AF2AE9595A60DD714729944 /* Pods-Argon-ArgonUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argon-ArgonUITests.debug.xcconfig"; path = "Target Support Files/Pods-Argon-ArgonUITests/Pods-Argon-ArgonUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8E0CFADD9E3A51DBD69A250F /* Pods_ArgonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABB7F007521D31989C3AFF2 /* Pods_Argon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Argon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA5461B5BD435498284F125C /* Pods-ArgonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgonTests.debug.xcconfig"; path = "Target Support Files/Pods-ArgonTests/Pods-ArgonTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F25A4FE8A83B26DA3AF355EE /* Pods-ArgonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgonTests.release.xcconfig"; path = "Target Support Files/Pods-ArgonTests/Pods-ArgonTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1473594625FB151500489AA7 /* CouchbaseLiteSwift.framework in Frameworks */,
+				9890B5EF529C2FDA39AF23EC /* Pods_Argon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3834BCC2D014C36F23D6FA8C /* Pods_ArgonTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,12 +112,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D8E3569E20BF708E4BB75A0 /* Pods_Argon_ArgonUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		108EA53D80E77D03A8909AA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BABB7F007521D31989C3AFF2 /* Pods_Argon.framework */,
+				04CC9B9B64863D2EBDE79973 /* Pods_Argon_ArgonUITests.framework */,
+				8E0CFADD9E3A51DBD69A250F /* Pods_ArgonTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		147358D725FB0C9800489AA7 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +136,8 @@
 				147358F925FB0C9C00489AA7 /* ArgonTests */,
 				1473590425FB0C9C00489AA7 /* ArgonUITests */,
 				147358E125FB0C9900489AA7 /* Products */,
+				8E6E59B3437E58DFA317EA96 /* Pods */,
+				108EA53D80E77D03A8909AA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +154,7 @@
 		147358E225FB0C9900489AA7 /* Argon */ = {
 			isa = PBXGroup;
 			children = (
+				1473595425FB189200489AA7 /* Networking */,
 				1473591C25FB105500489AA7 /* Persistence */,
 				1473591625FB0CB300489AA7 /* Frameworks */,
 				147358E325FB0C9900489AA7 /* AppDelegate.swift */,
@@ -166,6 +202,38 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		1473595425FB189200489AA7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1473596425FB1BFB00489AA7 /* Model */,
+				1473595525FB18AE00489AA7 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		1473596425FB1BFB00489AA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1473596625FB1CF200489AA7 /* AppData.swift */,
+				1473596C25FB1D4900489AA7 /* User.swift */,
+				1473597025FB1D7A00489AA7 /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8E6E59B3437E58DFA317EA96 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5B1B620B86E63952D360E6BD /* Pods-Argon.debug.xcconfig */,
+				68E8B7143BDAAAAACE1FB55E /* Pods-Argon.release.xcconfig */,
+				6AF2AE9595A60DD714729944 /* Pods-Argon-ArgonUITests.debug.xcconfig */,
+				4F9525220F0AE521E87C4DB4 /* Pods-Argon-ArgonUITests.release.xcconfig */,
+				EA5461B5BD435498284F125C /* Pods-ArgonTests.debug.xcconfig */,
+				F25A4FE8A83B26DA3AF355EE /* Pods-ArgonTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,10 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1473590A25FB0C9C00489AA7 /* Build configuration list for PBXNativeTarget "Argon" */;
 			buildPhases = (
+				B68AFA126CAB557A33320503 /* [CP] Check Pods Manifest.lock */,
 				147358DC25FB0C9800489AA7 /* Sources */,
 				147358DD25FB0C9800489AA7 /* Frameworks */,
 				147358DE25FB0C9800489AA7 /* Resources */,
 				1473594825FB151500489AA7 /* Embed Frameworks */,
+				A8F35A31CF67D560948BF1FD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,6 +261,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1473590D25FB0C9C00489AA7 /* Build configuration list for PBXNativeTarget "ArgonTests" */;
 			buildPhases = (
+				AAE7FEC7C77ED7B6A9852883 /* [CP] Check Pods Manifest.lock */,
 				147358F225FB0C9C00489AA7 /* Sources */,
 				147358F325FB0C9C00489AA7 /* Frameworks */,
 				147358F425FB0C9C00489AA7 /* Resources */,
@@ -209,9 +280,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1473591025FB0C9C00489AA7 /* Build configuration list for PBXNativeTarget "ArgonUITests" */;
 			buildPhases = (
+				55343E15773BC3575632161C /* [CP] Check Pods Manifest.lock */,
 				147358FD25FB0C9C00489AA7 /* Sources */,
 				147358FE25FB0C9C00489AA7 /* Frameworks */,
 				147358FF25FB0C9C00489AA7 /* Resources */,
+				D9FF0F5E9F4B08212D2A0D4F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,6 +365,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		55343E15773BC3575632161C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Argon-ArgonUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8F35A31CF67D560948BF1FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Argon/Pods-Argon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Argon/Pods-Argon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Argon/Pods-Argon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAE7FEC7C77ED7B6A9852883 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArgonTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B68AFA126CAB557A33320503 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Argon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9FF0F5E9F4B08212D2A0D4F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Argon-ArgonUITests/Pods-Argon-ArgonUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Argon-ArgonUITests/Pods-Argon-ArgonUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Argon-ArgonUITests/Pods-Argon-ArgonUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		147358DC25FB0C9800489AA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -299,8 +475,12 @@
 			files = (
 				147358E825FB0C9900489AA7 /* ViewController.swift in Sources */,
 				147358E425FB0C9900489AA7 /* AppDelegate.swift in Sources */,
+				1473595625FB18AE00489AA7 /* NetworkManager.swift in Sources */,
+				1473597125FB1D7A00489AA7 /* Post.swift in Sources */,
 				147358E625FB0C9900489AA7 /* SceneDelegate.swift in Sources */,
 				1473591E25FB107000489AA7 /* PersistenceManager.swift in Sources */,
+				1473596725FB1CF200489AA7 /* AppData.swift in Sources */,
+				1473596D25FB1D4900489AA7 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +653,7 @@
 		};
 		1473590B25FB0C9C00489AA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B1B620B86E63952D360E6BD /* Pods-Argon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -498,6 +679,7 @@
 		};
 		1473590C25FB0C9C00489AA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68E8B7143BDAAAAACE1FB55E /* Pods-Argon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -523,8 +705,9 @@
 		};
 		1473590E25FB0C9C00489AA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA5461B5BD435498284F125C /* Pods-ArgonTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ArgonTests/Info.plist;
@@ -544,8 +727,9 @@
 		};
 		1473590F25FB0C9C00489AA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F25A4FE8A83B26DA3AF355EE /* Pods-ArgonTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ArgonTests/Info.plist;
@@ -565,8 +749,9 @@
 		};
 		1473591125FB0C9C00489AA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AF2AE9595A60DD714729944 /* Pods-Argon-ArgonUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ArgonUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -584,8 +769,9 @@
 		};
 		1473591225FB0C9C00489AA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F9525220F0AE521E87C4DB4 /* Pods-Argon-ArgonUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ArgonUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
