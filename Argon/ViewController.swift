@@ -11,6 +11,7 @@ import Kingfisher
 class ViewController: UIViewController {
     
     var persistence: PersistenceManager!
+    let network = NetworkManager()
 
     @IBOutlet weak var centerImg: UIImageView!
     
@@ -22,8 +23,6 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let network = NetworkManager()
-        network.getAppData()
         
         if let url = URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/1200px-Wikipedia-logo-v2-en.svg.png") {
             centerImg.kf.setImage(with: url)

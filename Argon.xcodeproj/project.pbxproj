@@ -129,6 +129,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1400CE9925FB859F00C861D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		147358D725FB0C9800489AA7 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +204,7 @@
 		1473591C25FB105500489AA7 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				1400CE9925FB859F00C861D3 /* Model */,
 				1473591D25FB107000489AA7 /* PersistenceManager.swift */,
 			);
 			path = Persistence;
