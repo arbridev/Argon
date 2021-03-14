@@ -24,6 +24,8 @@
 		1473596725FB1CF200489AA7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473596625FB1CF200489AA7 /* AppData.swift */; };
 		1473596D25FB1D4900489AA7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473596C25FB1D4900489AA7 /* User.swift */; };
 		1473597125FB1D7A00489AA7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473597025FB1D7A00489AA7 /* Post.swift */; };
+		14E730F625FE6B2600E905F5 /* Post+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E730F525FE6B2600E905F5 /* Post+Mapping.swift */; };
+		14E730FA25FE8FA300E905F5 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E730F925FE8FA300E905F5 /* Mocks.swift */; };
 		3834BCC2D014C36F23D6FA8C /* Pods_ArgonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E0CFADD9E3A51DBD69A250F /* Pods_ArgonTests.framework */; };
 		9890B5EF529C2FDA39AF23EC /* Pods_Argon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABB7F007521D31989C3AFF2 /* Pods_Argon.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +85,8 @@
 		1473596625FB1CF200489AA7 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		1473596C25FB1D4900489AA7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1473597025FB1D7A00489AA7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		14E730F525FE6B2600E905F5 /* Post+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+Mapping.swift"; sourceTree = "<group>"; };
+		14E730F925FE8FA300E905F5 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		4F9525220F0AE521E87C4DB4 /* Pods-Argon-ArgonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argon-ArgonUITests.release.xcconfig"; path = "Target Support Files/Pods-Argon-ArgonUITests/Pods-Argon-ArgonUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5B1B620B86E63952D360E6BD /* Pods-Argon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argon.debug.xcconfig"; path = "Target Support Files/Pods-Argon/Pods-Argon.debug.xcconfig"; sourceTree = "<group>"; };
 		68E8B7143BDAAAAACE1FB55E /* Pods-Argon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argon.release.xcconfig"; path = "Target Support Files/Pods-Argon/Pods-Argon.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				143E55A425FCFCE300476357 /* User+Mapping.swift */,
+				14E730F525FE6B2600E905F5 /* Post+Mapping.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			children = (
 				147358FA25FB0C9C00489AA7 /* ArgonTests.swift */,
 				147358FC25FB0C9C00489AA7 /* Info.plist */,
+				14E730F925FE8FA300E905F5 /* Mocks.swift */,
 			);
 			path = ArgonTests;
 			sourceTree = "<group>";
@@ -494,6 +500,7 @@
 				147358E625FB0C9900489AA7 /* SceneDelegate.swift in Sources */,
 				1473591E25FB107000489AA7 /* PersistenceManager.swift in Sources */,
 				1473596725FB1CF200489AA7 /* AppData.swift in Sources */,
+				14E730F625FE6B2600E905F5 /* Post+Mapping.swift in Sources */,
 				1473596D25FB1D4900489AA7 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				147358FB25FB0C9C00489AA7 /* ArgonTests.swift in Sources */,
+				14E730FA25FE8FA300E905F5 /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

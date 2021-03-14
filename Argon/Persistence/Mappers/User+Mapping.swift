@@ -21,13 +21,12 @@ extension User {
     }
     
     static func map(from doc: Document) -> User {
-        guard let uid = doc.string(forKey: "id"),
-              let name = doc.string(forKey: "name"),
+        guard let name = doc.string(forKey: "name"),
               let email = doc.string(forKey: "email"),
               let profilePic = doc.string(forKey: "profilePic") else {
             fatalError("Could not map \(self.self)")
         }
-        return User(uid: uid, name: name, email: email, profilePic: profilePic, posts: [Post]())
+        return User(uid: doc.id, name: name, email: email, profilePic: profilePic, posts: [Post]())
     }
     
 }
