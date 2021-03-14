@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - Post
 struct Post: Codable {
-    let id, date: Int
+    let id: Int
+    let date: String
     let pics: [String]
 }

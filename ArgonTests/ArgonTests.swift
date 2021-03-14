@@ -11,7 +11,17 @@ import XCTest
 class ArgonTests: XCTestCase {
     
     let network = NetworkManager()
-    let persistence = PersistenceManager()
+    var persistence: PersistenceManager!
+    
+    override func setUp() {
+        persistence = PersistenceManager(databaseName: "testdb")
+        sleep(2)
+    }
+    
+    override func tearDown() {
+        sleep(2)
+        persistence.removeDatabase()
+    }
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,7 +31,7 @@ class ArgonTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testNetworkAppData() throws {
+    func testNetworking() throws {
         let dataExp = self.expectation(description: "fetch data")
         
         network.getAppData { (appData) in
@@ -33,6 +43,16 @@ class ArgonTests: XCTestCase {
     }
     
     func testPersistence() throws {
+        let user = User(uid: "000", name: "Test", email: "test@test.com", profilePic: "some.png", posts: [Post]())
+        persistence.add(user: user)
+        sleep(2)
+        XCTAssert(persistence.getUsersCount() > 0)
+        persistence.remove(userWithUID: user.uid)
+        sleep(2)
+        XCTAssert(persistence.getUsersCount() == 0)
+    }
+    
+    func testNetworkPersistence() throws {
         let dataExp = self.expectation(description: "fetch data")
         
         network.getAppData { (appData) in
@@ -46,7 +66,7 @@ class ArgonTests: XCTestCase {
         
         waitForExpectations(timeout: 5, handler: nil)
         
-        let usersCount = persistence.usersCount()
+        let usersCount = persistence.getUsersCount()
         XCTAssert(usersCount > 0)
     }
 

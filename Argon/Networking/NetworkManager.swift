@@ -10,8 +10,10 @@ import Alamofire
 
 final class NetworkManager {
     
+    let host = "http://localhost:4000"
+    
     func getAppData(completion: @escaping (_ appData: AppData?) -> ()) {
-        AF.request("https://mock.koombea.io/mt/api/users/posts",
+        AF.request(host + "/mt/api/users/posts",
                    method: .get)
             .responseDecodable(of: AppData.self) { (response) in
                 let result = response.result

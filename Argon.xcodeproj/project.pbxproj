@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D8E3569E20BF708E4BB75A0 /* Pods_Argon_ArgonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CC9B9B64863D2EBDE79973 /* Pods_Argon_ArgonUITests.framework */; };
+		143E55A525FCFCE300476357 /* User+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E55A425FCFCE300476357 /* User+Mapping.swift */; };
 		147358E425FB0C9900489AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147358E325FB0C9900489AA7 /* AppDelegate.swift */; };
 		147358E625FB0C9900489AA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147358E525FB0C9900489AA7 /* SceneDelegate.swift */; };
 		147358E825FB0C9900489AA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147358E725FB0C9900489AA7 /* ViewController.swift */; };
@@ -60,6 +61,8 @@
 
 /* Begin PBXFileReference section */
 		04CC9B9B64863D2EBDE79973 /* Pods_Argon_ArgonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Argon_ArgonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		143E55A125FCDA5000476357 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		143E55A425FCFCE300476357 /* User+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Mapping.swift"; sourceTree = "<group>"; };
 		147358E025FB0C9900489AA7 /* Argon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Argon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		147358E325FB0C9900489AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		147358E525FB0C9900489AA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,16 +132,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1400CE9925FB859F00C861D3 /* Model */ = {
+		1400CE9925FB859F00C861D3 /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
+				143E55A425FCFCE300476357 /* User+Mapping.swift */,
 			);
-			path = Model;
+			path = Mappers;
 			sourceTree = "<group>";
 		};
 		147358D725FB0C9800489AA7 = {
 			isa = PBXGroup;
 			children = (
+				143E55A125FCDA5000476357 /* Readme.md */,
 				147358E225FB0C9900489AA7 /* Argon */,
 				147358F925FB0C9C00489AA7 /* ArgonTests */,
 				1473590425FB0C9C00489AA7 /* ArgonUITests */,
@@ -204,7 +209,7 @@
 		1473591C25FB105500489AA7 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				1400CE9925FB859F00C861D3 /* Model */,
+				1400CE9925FB859F00C861D3 /* Mappers */,
 				1473591D25FB107000489AA7 /* PersistenceManager.swift */,
 			);
 			path = Persistence;
@@ -481,6 +486,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				143E55A525FCFCE300476357 /* User+Mapping.swift in Sources */,
 				147358E825FB0C9900489AA7 /* ViewController.swift in Sources */,
 				147358E425FB0C9900489AA7 /* AppDelegate.swift in Sources */,
 				1473595625FB18AE00489AA7 /* NetworkManager.swift in Sources */,
@@ -669,7 +675,6 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Argon/External",
 					"$(PROJECT_DIR)/Argon/Frameworks",
 				);
 				INFOPLIST_FILE = Argon/Info.plist;
