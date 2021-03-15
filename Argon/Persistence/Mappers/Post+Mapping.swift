@@ -10,9 +10,8 @@ import CouchbaseLiteSwift
 
 extension Post {
     
-    static func map(from dict: DictionaryObject) -> Post {
-        guard let id = dict.string(forKey: "id"),
-              let date = dict.string(forKey: "date"),
+    static func map(from dict: DictionaryObject, id: String) -> Post {
+        guard let date = dict.string(forKey: "date"),
               let pics = dict.array(forKey: "pics")?.toArray() as? [String] else {
             fatalError("Could not map \(self.self)")
         }

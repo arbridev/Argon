@@ -61,11 +61,12 @@ extension PersistenceManager {
     }
     
     func getUser(withUID id: String) -> User? {
+        let posts = getPosts(fromUserWithUID: id)
         guard let doc = database.document(withID: id) else {
             return nil
         }
         
-        return User.map(from: doc)
+        return User.map(from: doc, posts: posts)
     }
     
     func getUsersCount() -> Int {
@@ -86,7 +87,7 @@ extension PersistenceManager {
     
     func getUsers() -> [User] {
         let query = QueryBuilder
-            .select(SelectResult.all())
+            .select(SelectResult.all(), SelectResult.expression(Meta.id))
             .from(DataSource.database(database))
             .where(Expression.property("type").equalTo(Expression.string("\(User.self)")))
         
@@ -94,11 +95,13 @@ extension PersistenceManager {
         
         do {
             for result in try query.execute() {
-                guard let dict = result.dictionary(forKey: databaseName) else {
+                guard let dict = result.dictionary(forKey: databaseName),
+                      let id = result.string(forKey: "id") else {
                     continue
                 }
                 
-                let user = User.map(from: dict)
+                let posts = getPosts(fromUserWithUID: id)
+                let user = User.map(from: dict, id: id, posts: posts)
                 users.append(user)
             }
         } catch {
@@ -111,7 +114,7 @@ extension PersistenceManager {
         if let mutableDoc = database.document(withID: user.uid)?.toMutable() {
             mutableDoc.setString(user.name, forKey: "name")
                 .setString(user.email, forKey: "email")
-                .setString(user.profilePic, forKey: "profileKey")
+                .setString(user.profilePic, forKey: "profilePic")
             
             do {
                 try database.saveDocument(mutableDoc)
@@ -184,7 +187,7 @@ extension PersistenceManager {
     
     func getPosts() -> [Post] {
         let query = QueryBuilder
-            .select(SelectResult.all())
+            .select(SelectResult.all(), SelectResult.expression(Meta.id))
             .from(DataSource.database(database))
             .where(Expression.property("type").equalTo(Expression.string("\(Post.self)")))
         
@@ -192,11 +195,12 @@ extension PersistenceManager {
         
         do {
             for result in try query.execute() {
-                guard let dict = result.dictionary(forKey: databaseName) else {
+                guard let dict = result.dictionary(forKey: databaseName),
+                      let id = result.string(forKey: "id") else {
                     continue
                 }
                 
-                let post = Post.map(from: dict)
+                let post = Post.map(from: dict, id: id)
                 posts.append(post)
             }
         } catch {
@@ -207,20 +211,21 @@ extension PersistenceManager {
     
     func getPosts(fromUserWithUID userID: String) -> [Post] {
         let query = QueryBuilder
-            .select(SelectResult.all())
+            .select(SelectResult.all(), SelectResult.expression(Meta.id))
             .from(DataSource.database(database))
             .where(Expression.property("type").equalTo(Expression.string("\(Post.self)"))
-                    .add(Expression.property("userID").equalTo(Expression.string(userID))))
+                    .and(Expression.property("userID").equalTo(Expression.string(userID))))
         
         var posts = [Post]()
         
         do {
             for result in try query.execute() {
-                guard let dict = result.dictionary(forKey: databaseName) else {
+                guard let dict = result.dictionary(forKey: databaseName),
+                      let id = result.string(forKey: "id") else {
                     continue
                 }
                 
-                let post = Post.map(from: dict)
+                let post = Post.map(from: dict, id: id)
                 posts.append(post)
             }
         } catch {

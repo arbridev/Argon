@@ -26,6 +26,7 @@
 		1473597125FB1D7A00489AA7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473597025FB1D7A00489AA7 /* Post.swift */; };
 		14E730F625FE6B2600E905F5 /* Post+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E730F525FE6B2600E905F5 /* Post+Mapping.swift */; };
 		14E730FA25FE8FA300E905F5 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E730F925FE8FA300E905F5 /* Mocks.swift */; };
+		14E7310425FEBBA600E905F5 /* SingleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E7310325FEBBA600E905F5 /* SingleImageCell.swift */; };
 		3834BCC2D014C36F23D6FA8C /* Pods_ArgonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E0CFADD9E3A51DBD69A250F /* Pods_ArgonTests.framework */; };
 		9890B5EF529C2FDA39AF23EC /* Pods_Argon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABB7F007521D31989C3AFF2 /* Pods_Argon.framework */; };
 /* End PBXBuildFile section */
@@ -87,6 +88,7 @@
 		1473597025FB1D7A00489AA7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		14E730F525FE6B2600E905F5 /* Post+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+Mapping.swift"; sourceTree = "<group>"; };
 		14E730F925FE8FA300E905F5 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+		14E7310325FEBBA600E905F5 /* SingleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageCell.swift; sourceTree = "<group>"; };
 		4F9525220F0AE521E87C4DB4 /* Pods-Argon-ArgonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argon-ArgonUITests.release.xcconfig"; path = "Target Support Files/Pods-Argon-ArgonUITests/Pods-Argon-ArgonUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5B1B620B86E63952D360E6BD /* Pods-Argon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argon.debug.xcconfig"; path = "Target Support Files/Pods-Argon/Pods-Argon.debug.xcconfig"; sourceTree = "<group>"; };
 		68E8B7143BDAAAAACE1FB55E /* Pods-Argon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Argon.release.xcconfig"; path = "Target Support Files/Pods-Argon/Pods-Argon.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,15 +173,14 @@
 		147358E225FB0C9900489AA7 /* Argon */ = {
 			isa = PBXGroup;
 			children = (
+				14E7310025FEAD7200E905F5 /* Views */,
+				14E730FF25FEAD5500E905F5 /* Controllers */,
 				1473595425FB189200489AA7 /* Networking */,
 				1473591C25FB105500489AA7 /* Persistence */,
 				1473591625FB0CB300489AA7 /* Frameworks */,
 				147358E325FB0C9900489AA7 /* AppDelegate.swift */,
 				147358E525FB0C9900489AA7 /* SceneDelegate.swift */,
-				147358E725FB0C9900489AA7 /* ViewController.swift */,
-				147358E925FB0C9900489AA7 /* Main.storyboard */,
 				147358EC25FB0C9B00489AA7 /* Assets.xcassets */,
-				147358EE25FB0C9B00489AA7 /* LaunchScreen.storyboard */,
 				147358F125FB0C9C00489AA7 /* Info.plist */,
 			);
 			path = Argon;
@@ -238,6 +239,24 @@
 				1473597025FB1D7A00489AA7 /* Post.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		14E730FF25FEAD5500E905F5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				147358E725FB0C9900489AA7 /* ViewController.swift */,
+				14E7310325FEBBA600E905F5 /* SingleImageCell.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		14E7310025FEAD7200E905F5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				147358E925FB0C9900489AA7 /* Main.storyboard */,
+				147358EE25FB0C9B00489AA7 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8E6E59B3437E58DFA317EA96 /* Pods */ = {
@@ -500,6 +519,7 @@
 				147358E625FB0C9900489AA7 /* SceneDelegate.swift in Sources */,
 				1473591E25FB107000489AA7 /* PersistenceManager.swift in Sources */,
 				1473596725FB1CF200489AA7 /* AppData.swift in Sources */,
+				14E7310425FEBBA600E905F5 /* SingleImageCell.swift in Sources */,
 				14E730F625FE6B2600E905F5 /* Post+Mapping.swift in Sources */,
 				1473596D25FB1D4900489AA7 /* User.swift in Sources */,
 			);
