@@ -28,40 +28,21 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        network.getAppData { (appData) in
-//            guard let appData = appData else {
-//                return
-//            }
-//
-//            self.users = appData.users
-//            self.users?.forEach({ (user) in
-//                self.persistence.add(user: user)
-//            })
-//        }
+        network.getAppData { (appData) in
+            guard let appData = appData else {
+                return
+            }
+
+            self.users = appData.users
+            self.users?.forEach({ (user) in
+                self.persistence.add(user: user)
+            })
+        }
         
-//        self.users = persistence.getUsers()
-        
-        setupMockData()
+        self.users = persistence.getUsers()
         self.tableView.reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-
-    private func setupMockData() {
-        let post1 = Post(id: 0,
-                         date: "Mon May 17 2020 18:57:28 GMT-0400 (Venezuela Standard Time)",
-                         pics: ["https://www.positive.news/wp-content/uploads/2019/03/feat-1800x0-c-center.jpg"])
-        let user = User(uid: "000",
-                        name: "Test",
-                        email: "test@test.com",
-                        profilePic: "https://image.shutterstock.com/image-photo/beautiful-face-young-woman-clean-260nw-149962697.jpg",
-                        posts: [post1])
-        
-        self.users = [user]
-    }
 }
 
 // MARK: - Table view data source
@@ -90,7 +71,7 @@ extension ViewController: UITableViewDataSource {
         cell.userEmailLbl.text = user.email
         
         let firstPost = user.posts.first!
-        cell.dateLbl.text = firstPost.date
+        cell.dateLbl.text = StringDateFormatter.applyFormat(stringDate: firstPost.date)
         if let url = URL(string: firstPost.pics.first!) {
             cell.mainImg.kf.setImage(with: url)
         } else {

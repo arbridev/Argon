@@ -24,6 +24,7 @@
 		1473596725FB1CF200489AA7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473596625FB1CF200489AA7 /* AppData.swift */; };
 		1473596D25FB1D4900489AA7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473596C25FB1D4900489AA7 /* User.swift */; };
 		1473597125FB1D7A00489AA7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473597025FB1D7A00489AA7 /* Post.swift */; };
+		148A444B2600493400F042D2 /* StringDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A444A2600493400F042D2 /* StringDateFormatter.swift */; };
 		14E730F625FE6B2600E905F5 /* Post+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E730F525FE6B2600E905F5 /* Post+Mapping.swift */; };
 		14E730FA25FE8FA300E905F5 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E730F925FE8FA300E905F5 /* Mocks.swift */; };
 		14E7310425FEBBA600E905F5 /* SingleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E7310325FEBBA600E905F5 /* SingleImageCell.swift */; };
@@ -86,6 +87,7 @@
 		1473596625FB1CF200489AA7 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		1473596C25FB1D4900489AA7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1473597025FB1D7A00489AA7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		148A444A2600493400F042D2 /* StringDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringDateFormatter.swift; sourceTree = "<group>"; };
 		14E730F525FE6B2600E905F5 /* Post+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+Mapping.swift"; sourceTree = "<group>"; };
 		14E730F925FE8FA300E905F5 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		14E7310325FEBBA600E905F5 /* SingleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageCell.swift; sourceTree = "<group>"; };
@@ -147,6 +149,13 @@
 			path = Mappers;
 			sourceTree = "<group>";
 		};
+		146DB5A425FF725200D8DF99 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		147358D725FB0C9800489AA7 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +187,7 @@
 				1473595425FB189200489AA7 /* Networking */,
 				1473591C25FB105500489AA7 /* Persistence */,
 				1473591625FB0CB300489AA7 /* Frameworks */,
+				148A445026004BB800F042D2 /* Utils */,
 				147358E325FB0C9900489AA7 /* AppDelegate.swift */,
 				147358E525FB0C9900489AA7 /* SceneDelegate.swift */,
 				147358EC25FB0C9B00489AA7 /* Assets.xcassets */,
@@ -241,6 +251,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		148A445026004BB800F042D2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				148A444A2600493400F042D2 /* StringDateFormatter.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		14E730FF25FEAD5500E905F5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +271,7 @@
 		14E7310025FEAD7200E905F5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				146DB5A425FF725200D8DF99 /* Cells */,
 				147358E925FB0C9900489AA7 /* Main.storyboard */,
 				147358EE25FB0C9B00489AA7 /* LaunchScreen.storyboard */,
 			);
@@ -285,6 +304,7 @@
 				147358DE25FB0C9800489AA7 /* Resources */,
 				1473594825FB151500489AA7 /* Embed Frameworks */,
 				A8F35A31CF67D560948BF1FD /* [CP] Embed Pods Frameworks */,
+				14E7310925FEFC7C00E905F5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -404,6 +424,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		14E7310925FEFC7C00E905F5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\n#  strip_frameworks.sh\n#  CouchbaseLite\n#\n#  Copyright (c) 2017 Couchbase, Inc All rights reserved.\n#\n#  Licensed under the Apache License, Version 2.0 (the \"License\");\n#  you may not use this file except in compliance with the License.\n#  You may obtain a copy of the License at\n#\n#  http://www.apache.org/licenses/LICENSE-2.0\n#\n#  Unless required by applicable law or agreed to in writing, software\n#  distributed under the License is distributed on an \"AS IS\" BASIS,\n#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n#  See the License for the specific language governing permissions and\n#  limitations under the License.\n#\n#\n# Run this script in the app target's Run Script Phase to strip non-valid\n# architecture types from dynamic frameworks and dSYM files.\n#\n# If the app project installs Couchbase Lite framework manually,\n# this is required for archiving the app for submitting to the app store.\n# See http://www.openradar.me/radar?id=6409498411401216 for more detail.\n#\n\n# Strip non-valid archecture types from the given universal binary file.\nstrip() {\n    i=0\n    archs=\"$(lipo -info \"$1\" | cut -d ':' -f3)\"\n    for arch in $archs; do\n        if ! [[ \"${VALID_ARCHS}\" == *\"${arch}\"* ]]; then\n            lipo -remove \"${arch}\" -output \"$1\" \"$1\" || exit 1\n            i=$((i + 1))\n        fi\n    done\n    \n    if [[ ${i} > 0 ]]; then\n        archs=\"$(lipo -info \"$1\" | cut -d ':' -f3)\"\n        echo \"Stripped $1 : ${archs}\"\n        return 0\n    else\n        return 1\n    fi\n}\n\n# Go to frameworks folder:\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\n# Strip frameworks:\ndsyms_files=()\nfor file in $(find . -type f -perm +111 | grep \".framework\"); do\n    if ! [[ \"$(file \"${file}\")\" == *\"dynamically linked shared library\"* ]]; then\n        continue\n    fi\n\n    strip \"${file}\"\n    if [[ $? == 0 ]]; then\n        # Code sign the stripped framework:\n        if [ \"${CODE_SIGNING_REQUIRED}\" == \"YES\" ]; then\n            echo \"Sign ${file}\"\n            codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"${file}\"\n        fi\n\n        bin_name=\"$(basename \"${file}\")\"\n        dsyms_files+=(${BUILT_PRODUCTS_DIR}/${bin_name}.framework.dSYM/Contents/Resources/DWARF/${bin_name})\n    fi\ndone\n\n# Strip dSYM files:\nfor file in $dsyms_files; do\n    if [[ -e \"${file}\" ]]; then\n        strip \"${file}\" || true\n    fi\ndone\n\n";
+		};
 		55343E15773BC3575632161C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -512,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				143E55A525FCFCE300476357 /* User+Mapping.swift in Sources */,
+				148A444B2600493400F042D2 /* StringDateFormatter.swift in Sources */,
 				147358E825FB0C9900489AA7 /* ViewController.swift in Sources */,
 				147358E425FB0C9900489AA7 /* AppDelegate.swift in Sources */,
 				1473595625FB18AE00489AA7 /* NetworkManager.swift in Sources */,
