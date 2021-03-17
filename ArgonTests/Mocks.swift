@@ -15,6 +15,12 @@ struct Mocks {
                            profilePic: "some.png",
                            posts: [Mocks.post1])
     
+    static let user2 = User(uid: "001",
+                           name: "Test2",
+                           email: "test2@test.com",
+                           profilePic: "some.png",
+                           posts: [Mocks.post2])
+    
     static let post1 = Post(id: 0,
                            date: "Mon May 17 2020 18:57:28 GMT-0400 (Venezuela Standard Time)",
                            pics: ["https://www.positive.news/wp-content/uploads/2019/03/feat-1800x0-c-center.jpg"])

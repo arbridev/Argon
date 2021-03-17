@@ -17,6 +17,7 @@
 		1414306D2601935E00F66F65 /* MoreImagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1414306B2601935E00F66F65 /* MoreImagesCell.xib */; };
 		1414307426019D0F00F66F65 /* BottomImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414307226019D0F00F66F65 /* BottomImageCell.swift */; };
 		1414307526019D0F00F66F65 /* BottomImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1414307326019D0F00F66F65 /* BottomImageCell.xib */; };
+		1414307D2601AC9100F66F65 /* StringDateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414307C2601AC9100F66F65 /* StringDateConverter.swift */; };
 		143E55A525FCFCE300476357 /* User+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E55A425FCFCE300476357 /* User+Mapping.swift */; };
 		147358E425FB0C9900489AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147358E325FB0C9900489AA7 /* AppDelegate.swift */; };
 		147358E625FB0C9900489AA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147358E525FB0C9900489AA7 /* SceneDelegate.swift */; };
@@ -83,6 +84,7 @@
 		1414306B2601935E00F66F65 /* MoreImagesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreImagesCell.xib; sourceTree = "<group>"; };
 		1414307226019D0F00F66F65 /* BottomImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomImageCell.swift; sourceTree = "<group>"; };
 		1414307326019D0F00F66F65 /* BottomImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomImageCell.xib; sourceTree = "<group>"; };
+		1414307C2601AC9100F66F65 /* StringDateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringDateConverter.swift; sourceTree = "<group>"; };
 		143E55A125FCDA5000476357 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		143E55A425FCFCE300476357 /* User+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Mapping.swift"; sourceTree = "<group>"; };
 		147358E025FB0C9900489AA7 /* Argon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Argon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				148A444A2600493400F042D2 /* StringDateFormatter.swift */,
+				1414307C2601AC9100F66F65 /* StringDateConverter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				143E55A525FCFCE300476357 /* User+Mapping.swift in Sources */,
+				1414307D2601AC9100F66F65 /* StringDateConverter.swift in Sources */,
 				148A444B2600493400F042D2 /* StringDateFormatter.swift in Sources */,
 				1401ABF52600C81800ADBF23 /* TwoImagesCell.swift in Sources */,
 				147358E825FB0C9900489AA7 /* ViewController.swift in Sources */,

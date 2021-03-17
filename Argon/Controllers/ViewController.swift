@@ -10,9 +10,16 @@ import Kingfisher
 
 class ViewController: UIViewController {
     
+    struct ViewPost {
+        let id: Int
+        let user: User
+        let date: Date
+        let pics: [String]
+    }
+    
     let network = NetworkManager()
     var persistence: PersistenceManager!
-    var users: [User]?
+    var viewPosts: [ViewPost]?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -36,15 +43,30 @@ class ViewController: UIViewController {
             guard let appData = appData else {
                 return
             }
-
-            self.users = appData.users
-            self.users?.forEach({ (user) in
+            
+            appData.users.forEach({ (user) in
                 self.persistence.add(user: user)
             })
+            self.viewPosts = self.extractViewPosts(fromUsers: appData.users)
         }
         
-        self.users = persistence.getUsers()
+        self.viewPosts = extractViewPosts(fromUsers: persistence.getUsers())
         self.tableView.reloadData()
+    }
+    
+    func extractViewPosts(fromUsers users: [User]) -> [ViewPost] {
+        var viewPosts = [ViewPost]()
+        users.forEach { (user) in
+            user.posts.forEach { (post) in
+                let date = StringDateConverter.convert(post.date)!
+                let viewPost = ViewPost(id: post.id, user: user, date: date, pics: post.pics)
+                viewPosts.append(viewPost)
+            }
+        }
+        let sortedViewPosts = viewPosts.sorted {
+            $0.date > $1.date
+        }
+        return sortedViewPosts
     }
     
 }
@@ -54,36 +76,34 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let users = self.users else {
+        guard let viewPosts = self.viewPosts else {
             return 0
         }
         
-        return users.count
+        return viewPosts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "\(SingleImageCell.self)", for: indexPath) as! PostCell
-        guard let user = self.users?[indexPath.row] else {
+        guard let viewPost = self.viewPosts?[indexPath.row] else {
             return cell
         }
         
-        let firstPost = user.posts.first!
-        
-        switch firstPost.pics.count {
+        switch viewPost.pics.count {
         case 1:
-            setupSingleImageCell(cell: cell as! SingleImageCell, post: firstPost)
+            setupSingleImageCell(cell: cell as! SingleImageCell, post: viewPost)
         case 2:
             cell = tableView.dequeueReusableCell(withIdentifier: "\(TwoImagesCell.self)", for: indexPath) as! TwoImagesCell
-            setupTwoImagesCell(cell: cell as! TwoImagesCell, post: firstPost)
+            setupTwoImagesCell(cell: cell as! TwoImagesCell, post: viewPost)
         case 3:
             cell = tableView.dequeueReusableCell(withIdentifier: "\(ThreeImagesCell.self)", for: indexPath) as! ThreeImagesCell
-            setupThreeImagesCell(cell: cell as! ThreeImagesCell, post: firstPost)
+            setupThreeImagesCell(cell: cell as! ThreeImagesCell, post: viewPost)
         default:
             cell = tableView.dequeueReusableCell(withIdentifier: "\(MoreImagesCell.self)", for: indexPath) as! MoreImagesCell
-            setupMoreImagesCell(cell: cell as! MoreImagesCell, post: firstPost)
+            setupMoreImagesCell(cell: cell as! MoreImagesCell, post: viewPost)
         }
         
-        setupUserSection(cell: cell, user: user)
+        setupUserSection(cell: cell, user: viewPost.user)
         
         return cell
     }
@@ -98,8 +118,8 @@ extension ViewController: UITableViewDataSource {
         cell.userEmailLbl.text = user.email
     }
     
-    func setupSingleImageCell(cell: SingleImageCell, post: Post) {
-        cell.dateLbl.text = StringDateFormatter.applyFormat(stringDate: post.date)
+    func setupSingleImageCell(cell: SingleImageCell, post: ViewPost) {
+        cell.dateLbl.text = StringDateFormatter.applyFormat(date: post.date)
         if let url = URL(string: post.pics.first!) {
             cell.mainImg.kf.setImage(with: url)
         } else {
@@ -107,8 +127,8 @@ extension ViewController: UITableViewDataSource {
         }
     }
     
-    func setupTwoImagesCell(cell: TwoImagesCell, post: Post) {
-        cell.dateLbl.text = StringDateFormatter.applyFormat(stringDate: post.date)
+    func setupTwoImagesCell(cell: TwoImagesCell, post: ViewPost) {
+        cell.dateLbl.text = StringDateFormatter.applyFormat(date: post.date)
         guard let leftImageUrl = URL(string: post.pics[0]),
               let rightImageUrl = URL(string: post.pics[1]) else {
             return
@@ -117,8 +137,8 @@ extension ViewController: UITableViewDataSource {
         cell.rightImage.kf.setImage(with: rightImageUrl)
     }
     
-    func setupThreeImagesCell(cell: ThreeImagesCell, post: Post) {
-        cell.dateLbl.text = StringDateFormatter.applyFormat(stringDate: post.date)
+    func setupThreeImagesCell(cell: ThreeImagesCell, post: ViewPost) {
+        cell.dateLbl.text = StringDateFormatter.applyFormat(date: post.date)
         guard let topImageUrl = URL(string: post.pics[0]),
               let bottomLeftImg = URL(string: post.pics[1]),
               let bottomRightImg = URL(string: post.pics[2]) else {
@@ -129,8 +149,8 @@ extension ViewController: UITableViewDataSource {
         cell.bottomRightImg.kf.setImage(with: bottomRightImg)
     }
     
-    func setupMoreImagesCell(cell: MoreImagesCell, post: Post) {
-        cell.dateLbl.text = StringDateFormatter.applyFormat(stringDate: post.date)
+    func setupMoreImagesCell(cell: MoreImagesCell, post: ViewPost) {
+        cell.dateLbl.text = StringDateFormatter.applyFormat(date: post.date)
         guard let topImageUrl = URL(string: post.pics[0]) else {
             return
         }

@@ -12,7 +12,7 @@ final class StringDateFormatter {
     /// Format a string date
     /// from: Mon May 18 2020 19:51:21 GMT-0400 (Venezuelan Standard Time)
     /// - Parameter stringDate: date as a string with the specified format
-    /// - Returns: formatted date
+    /// - Returns: formatted date string
     static func applyFormat(stringDate: String) -> String {
         let regex = try! NSRegularExpression(pattern: #"\s\(.+\)"#, options: [])
         let mString = NSMutableString(string: stringDate)
@@ -36,6 +36,26 @@ final class StringDateFormatter {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .ordinal
         let day = numberFormatter.string(from: Int(dfOut.string(from: date!))! as NSNumber)!
+        
+        formattedDate += " " + day
+        
+        return formattedDate
+    }
+    
+    /// Format a date
+    /// - Parameter date: a date
+    /// - Returns: formatted date string
+    static func applyFormat(date: Date) -> String {
+        let dfOut = DateFormatter()
+        dfOut.dateFormat = "MMM"
+        
+        var formattedDate = dfOut.string(from: date)
+        
+        dfOut.dateFormat = "d"
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .ordinal
+        let day = numberFormatter.string(from: Int(dfOut.string(from: date))! as NSNumber)!
         
         formattedDate += " " + day
         
