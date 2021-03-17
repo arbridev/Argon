@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         
         tableView.register(UINib(nibName: "\(TwoImagesCell.self)", bundle: nil), forCellReuseIdentifier: "\(TwoImagesCell.self)")
         tableView.register(UINib(nibName: "\(ThreeImagesCell.self)", bundle: nil), forCellReuseIdentifier: "\(ThreeImagesCell.self)")
+        tableView.register(UINib(nibName: "\(MoreImagesCell.self)", bundle: nil), forCellReuseIdentifier: "\(MoreImagesCell.self)")
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -68,19 +69,18 @@ extension ViewController: UITableViewDataSource {
         
         let firstPost = user.posts.first!
         
-        if firstPost.pics.count == 1 {
+        switch firstPost.pics.count {
+        case 1:
             setupSingleImageCell(cell: cell as! SingleImageCell, post: firstPost)
-        }
-        if firstPost.pics.count == 2 {
+        case 2:
             cell = tableView.dequeueReusableCell(withIdentifier: "\(TwoImagesCell.self)", for: indexPath) as! TwoImagesCell
             setupTwoImagesCell(cell: cell as! TwoImagesCell, post: firstPost)
-        }
-        if firstPost.pics.count == 3 {
+        case 3:
             cell = tableView.dequeueReusableCell(withIdentifier: "\(ThreeImagesCell.self)", for: indexPath) as! ThreeImagesCell
             setupThreeImagesCell(cell: cell as! ThreeImagesCell, post: firstPost)
-        }
-        if firstPost.pics.count > 3 {
-            setupSingleImageCell(cell: cell as! SingleImageCell, post: firstPost)
+        default:
+            cell = tableView.dequeueReusableCell(withIdentifier: "\(MoreImagesCell.self)", for: indexPath) as! MoreImagesCell
+            setupMoreImagesCell(cell: cell as! MoreImagesCell, post: firstPost)
         }
         
         setupUserSection(cell: cell, user: user)
@@ -127,6 +127,15 @@ extension ViewController: UITableViewDataSource {
         cell.topImage.kf.setImage(with: topImageUrl)
         cell.bottomLeftImg.kf.setImage(with: bottomLeftImg)
         cell.bottomRightImg.kf.setImage(with: bottomRightImg)
+    }
+    
+    func setupMoreImagesCell(cell: MoreImagesCell, post: Post) {
+        cell.dateLbl.text = StringDateFormatter.applyFormat(stringDate: post.date)
+        guard let topImageUrl = URL(string: post.pics[0]) else {
+            return
+        }
+        cell.topImage.kf.setImage(with: topImageUrl)
+        cell.setBottomImages(imageURLs: Array(post.pics[1..<post.pics.count]))
     }
     
 }
