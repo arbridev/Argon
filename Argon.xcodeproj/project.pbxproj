@@ -11,6 +11,8 @@
 		1401ABF52600C81800ADBF23 /* TwoImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401ABF32600C81800ADBF23 /* TwoImagesCell.swift */; };
 		1401ABF62600C81800ADBF23 /* TwoImagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1401ABF42600C81800ADBF23 /* TwoImagesCell.xib */; };
 		1401ABFD2600CBF400ADBF23 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401ABFC2600CBF400ADBF23 /* PostCell.swift */; };
+		1414306426018D8D00F66F65 /* ThreeImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414306226018D8D00F66F65 /* ThreeImagesCell.swift */; };
+		1414306526018D8D00F66F65 /* ThreeImagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1414306326018D8D00F66F65 /* ThreeImagesCell.xib */; };
 		143E55A525FCFCE300476357 /* User+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E55A425FCFCE300476357 /* User+Mapping.swift */; };
 		147358E425FB0C9900489AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147358E325FB0C9900489AA7 /* AppDelegate.swift */; };
 		147358E625FB0C9900489AA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147358E525FB0C9900489AA7 /* SceneDelegate.swift */; };
@@ -71,6 +73,8 @@
 		1401ABF32600C81800ADBF23 /* TwoImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoImagesCell.swift; sourceTree = "<group>"; };
 		1401ABF42600C81800ADBF23 /* TwoImagesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoImagesCell.xib; sourceTree = "<group>"; };
 		1401ABFC2600CBF400ADBF23 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		1414306226018D8D00F66F65 /* ThreeImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeImagesCell.swift; sourceTree = "<group>"; };
+		1414306326018D8D00F66F65 /* ThreeImagesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThreeImagesCell.xib; sourceTree = "<group>"; };
 		143E55A125FCDA5000476357 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		143E55A425FCFCE300476357 /* User+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Mapping.swift"; sourceTree = "<group>"; };
 		147358E025FB0C9900489AA7 /* Argon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Argon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +172,7 @@
 			children = (
 				14E7310325FEBBA600E905F5 /* SingleImageCell.swift */,
 				1401ABF32600C81800ADBF23 /* TwoImagesCell.swift */,
+				1414306226018D8D00F66F65 /* ThreeImagesCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				1401ABF42600C81800ADBF23 /* TwoImagesCell.xib */,
+				1414306326018D8D00F66F65 /* ThreeImagesCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 			files = (
 				147358F025FB0C9C00489AA7 /* LaunchScreen.storyboard in Resources */,
 				147358ED25FB0C9B00489AA7 /* Assets.xcassets in Resources */,
+				1414306526018D8D00F66F65 /* ThreeImagesCell.xib in Resources */,
 				1401ABF62600C81800ADBF23 /* TwoImagesCell.xib in Resources */,
 				147358EB25FB0C9900489AA7 /* Main.storyboard in Resources */,
 			);
@@ -581,6 +588,7 @@
 				147358E425FB0C9900489AA7 /* AppDelegate.swift in Sources */,
 				1473595625FB18AE00489AA7 /* NetworkManager.swift in Sources */,
 				1473597125FB1D7A00489AA7 /* Post.swift in Sources */,
+				1414306426018D8D00F66F65 /* ThreeImagesCell.swift in Sources */,
 				1401ABFD2600CBF400ADBF23 /* PostCell.swift in Sources */,
 				147358E625FB0C9900489AA7 /* SceneDelegate.swift in Sources */,
 				1473591E25FB107000489AA7 /* PersistenceManager.swift in Sources */,

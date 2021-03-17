@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         persistence = PersistenceManager()
         
         tableView.register(UINib(nibName: "\(TwoImagesCell.self)", bundle: nil), forCellReuseIdentifier: "\(TwoImagesCell.self)")
+        tableView.register(UINib(nibName: "\(ThreeImagesCell.self)", bundle: nil), forCellReuseIdentifier: "\(ThreeImagesCell.self)")
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -74,7 +75,11 @@ extension ViewController: UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: "\(TwoImagesCell.self)", for: indexPath) as! TwoImagesCell
             setupTwoImagesCell(cell: cell as! TwoImagesCell, post: firstPost)
         }
-        if firstPost.pics.count > 2 {
+        if firstPost.pics.count == 3 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "\(ThreeImagesCell.self)", for: indexPath) as! ThreeImagesCell
+            setupThreeImagesCell(cell: cell as! ThreeImagesCell, post: firstPost)
+        }
+        if firstPost.pics.count > 3 {
             setupSingleImageCell(cell: cell as! SingleImageCell, post: firstPost)
         }
         
@@ -110,6 +115,18 @@ extension ViewController: UITableViewDataSource {
         }
         cell.leftImage.kf.setImage(with: leftImageUrl)
         cell.rightImage.kf.setImage(with: rightImageUrl)
+    }
+    
+    func setupThreeImagesCell(cell: ThreeImagesCell, post: Post) {
+        cell.dateLbl.text = StringDateFormatter.applyFormat(stringDate: post.date)
+        guard let topImageUrl = URL(string: post.pics[0]),
+              let bottomLeftImg = URL(string: post.pics[1]),
+              let bottomRightImg = URL(string: post.pics[2]) else {
+            return
+        }
+        cell.topImage.kf.setImage(with: topImageUrl)
+        cell.bottomLeftImg.kf.setImage(with: bottomLeftImg)
+        cell.bottomRightImg.kf.setImage(with: bottomRightImg)
     }
     
 }
