@@ -21,6 +21,8 @@ class ViewController: UIViewController {
         
         persistence = PersistenceManager()
         
+        tableView.register(UINib(nibName: "\(TwoImagesCell.self)", bundle: nil), forCellReuseIdentifier: "\(TwoImagesCell.self)")
+        
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -58,10 +60,30 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(SingleImageCell.self)", for: indexPath) as! SingleImageCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "\(SingleImageCell.self)", for: indexPath) as! PostCell
         guard let user = self.users?[indexPath.row] else {
             return cell
         }
+        
+        let firstPost = user.posts.first!
+        
+        if firstPost.pics.count == 1 {
+            setupSingleImageCell(cell: cell as! SingleImageCell, post: firstPost)
+        }
+        if firstPost.pics.count == 2 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "\(TwoImagesCell.self)", for: indexPath) as! TwoImagesCell
+            setupTwoImagesCell(cell: cell as! TwoImagesCell, post: firstPost)
+        }
+        if firstPost.pics.count > 2 {
+            setupSingleImageCell(cell: cell as! SingleImageCell, post: firstPost)
+        }
+        
+        setupUserSection(cell: cell, user: user)
+        
+        return cell
+    }
+    
+    func setupUserSection(cell: PostCell, user: User) {
         if let url = URL(string: user.profilePic) {
             cell.profileImg.kf.setImage(with: url)
         } else {
@@ -69,16 +91,25 @@ extension ViewController: UITableViewDataSource {
         }
         cell.userNameLbl.text = user.name
         cell.userEmailLbl.text = user.email
-        
-        let firstPost = user.posts.first!
-        cell.dateLbl.text = StringDateFormatter.applyFormat(stringDate: firstPost.date)
-        if let url = URL(string: firstPost.pics.first!) {
+    }
+    
+    func setupSingleImageCell(cell: SingleImageCell, post: Post) {
+        cell.dateLbl.text = StringDateFormatter.applyFormat(stringDate: post.date)
+        if let url = URL(string: post.pics.first!) {
             cell.mainImg.kf.setImage(with: url)
         } else {
             cell.mainImg.image = nil
         }
-        
-        return cell
+    }
+    
+    func setupTwoImagesCell(cell: TwoImagesCell, post: Post) {
+        cell.dateLbl.text = StringDateFormatter.applyFormat(stringDate: post.date)
+        guard let leftImageUrl = URL(string: post.pics[0]),
+              let rightImageUrl = URL(string: post.pics[1]) else {
+            return
+        }
+        cell.leftImage.kf.setImage(with: leftImageUrl)
+        cell.rightImage.kf.setImage(with: rightImageUrl)
     }
     
 }
@@ -86,9 +117,5 @@ extension ViewController: UITableViewDataSource {
 // MARK: - Table view delegate
 
 extension ViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 440.0
-    }
     
 }

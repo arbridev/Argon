@@ -16,22 +16,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QJq-35-DgI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="500" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QJq-35-DgI">
                                 <rect key="frame" x="11" y="44" width="392" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SingleImageCell" rowHeight="440" id="nak-hM-CFX" customClass="SingleImageCell" customModule="Argon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="392" height="440"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SingleImageCell" id="nak-hM-CFX" customClass="SingleImageCell" customModule="Argon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="392" height="482.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nak-hM-CFX" id="Kva-qc-9Cl">
-                                            <rect key="frame" x="0.0" y="0.0" width="392" height="440"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="392" height="482.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eE6-Dn-0Ya">
-                                                    <rect key="frame" x="0.0" y="0.0" width="392" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="392" height="90.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJX-Vn-g4w">
-                                                            <rect key="frame" x="158" y="18.5" width="76" height="28"/>
+                                                            <rect key="frame" x="158" y="19" width="76" height="28"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hIC-Mb-3ku">
                                                                     <rect key="frame" x="0.0" y="-2" width="32" height="32"/>
@@ -67,7 +67,7 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7K-eh-naD">
-                                                            <rect key="frame" x="183.5" y="61.5" width="25" height="13.5"/>
+                                                            <rect key="frame" x="183.5" y="62" width="25" height="13.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -76,6 +76,7 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="90" id="JoP-r6-fzL"/>
+                                                        <constraint firstItem="JJX-Vn-g4w" firstAttribute="top" secondItem="eE6-Dn-0Ya" secondAttribute="top" constant="19" id="OtA-Ge-DG1"/>
                                                         <constraint firstAttribute="bottom" secondItem="S7K-eh-naD" secondAttribute="bottom" constant="15" id="RCx-sd-eHD"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JJX-Vn-g4w" secondAttribute="trailing" constant="11" id="Sbb-dM-zsL"/>
                                                         <constraint firstItem="S7K-eh-naD" firstAttribute="top" secondItem="JJX-Vn-g4w" secondAttribute="bottom" constant="15" id="bkj-AT-fl8"/>
@@ -85,7 +86,10 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PGx-jT-HhF">
-                                                    <rect key="frame" x="0.0" y="90" width="392" height="350"/>
+                                                    <rect key="frame" x="0.0" y="90.5" width="392" height="392"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="PGx-jT-HhF" secondAttribute="height" multiplier="1:1" id="Wno-O7-Fj1"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -99,11 +103,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateLbl" destination="S7K-eh-naD" id="8bp-cy-PJP"/>
+                                            <outlet property="dateLbl" destination="S7K-eh-naD" id="EeC-SW-Ryi"/>
                                             <outlet property="mainImg" destination="PGx-jT-HhF" id="2gf-Wk-4qS"/>
-                                            <outlet property="profileImg" destination="hIC-Mb-3ku" id="B4c-L6-JMh"/>
-                                            <outlet property="userEmailLbl" destination="qVl-ci-UGF" id="vLU-5Z-NV2"/>
-                                            <outlet property="userNameLbl" destination="RZI-rU-99P" id="16z-pT-wsB"/>
+                                            <outlet property="profileImg" destination="hIC-Mb-3ku" id="hBn-cL-k1h"/>
+                                            <outlet property="userEmailLbl" destination="qVl-ci-UGF" id="5Y2-UJ-exT"/>
+                                            <outlet property="userNameLbl" destination="RZI-rU-99P" id="CkB-hi-bmG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
