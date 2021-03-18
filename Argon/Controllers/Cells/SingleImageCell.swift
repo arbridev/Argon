@@ -9,6 +9,8 @@ import UIKit
 
 class SingleImageCell: UITableViewCell, PostCell {
     
+    var delegate: ImageSelectionDelegate?
+    
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var userEmailLbl: UILabel!
@@ -19,6 +21,14 @@ class SingleImageCell: UITableViewCell, PostCell {
         super.awakeFromNib()
         
         profileImg.layer.cornerRadius = profileImg.bounds.height / 2
+        
+        mainImg.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(mainImgWasSelected))
+        mainImg.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func mainImgWasSelected() {
+        delegate?.imageWasSelected(image: mainImg.image!)
     }
 
 }

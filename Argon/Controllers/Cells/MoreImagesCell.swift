@@ -10,6 +10,8 @@ import UIKit
 class MoreImagesCell: UITableViewCell, PostCell {
     
     private var bottomImages: [String]!
+    var tapGesture: UITapGestureRecognizer!
+    var delegate: ImageSelectionDelegate?
 
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var userNameLbl: UILabel!
@@ -27,11 +29,19 @@ class MoreImagesCell: UITableViewCell, PostCell {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        topImage.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageWasSelected))
+        topImage.addGestureRecognizer(tapGesture)
     }
     
     func setBottomImages(imageURLs urls: [String]) {
         bottomImages = urls
         collectionView.reloadData()
+    }
+    
+    @objc func imageWasSelected() {
+        delegate?.imageWasSelected(image: topImage.image!)
     }
     
 }
@@ -55,5 +65,10 @@ extension MoreImagesCell: UICollectionViewDataSource {
 }
 
 extension MoreImagesCell: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! BottomImageCell
+        delegate?.imageWasSelected(image: cell.contentImage.image!)
+    }
     
 }

@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     let network = NetworkManager()
     var persistence: PersistenceManager!
     var viewPosts: [ViewPost]?
+    var popUpImage: UIView?
+    var popUpImageSwipeGesture: UISwipeGestureRecognizer!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,7 +35,6 @@ class ViewController: UIViewController {
         tableView.register(UINib(nibName: "\(MoreImagesCell.self)", bundle: nil), forCellReuseIdentifier: "\(MoreImagesCell.self)")
         
         tableView.dataSource = self
-        tableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +68,36 @@ class ViewController: UIViewController {
             $0.date > $1.date
         }
         return sortedViewPosts
+    }
+    
+    func popImage(image: UIImage) {
+        popUpImage = UIView(frame: view.bounds)
+        view.addSubview(popUpImage!)
+        let blurEffect = UIBlurEffect(style: .dark)
+        let backdrop = UIVisualEffectView(effect: blurEffect)
+        backdrop.frame = popUpImage!.bounds
+        popUpImage?.addSubview(backdrop)
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        popUpImage?.addSubview(imageView)
+        popUpImageSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissPoppedImage(_:)))
+        popUpImageSwipeGesture.direction = .down
+        backdrop.addGestureRecognizer(popUpImageSwipeGesture)
+        
+        self.popUpImage?.alpha = 0
+        UIView.animate(withDuration: 0.4, animations: {
+            self.popUpImage?.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    @objc func dismissPoppedImage(_ sender: UISwipeGestureRecognizer) {
+        UIView.animate(withDuration: 0.4) {
+            self.popUpImage?.alpha = 0
+        } completion: { (completed) in
+            self.popUpImage?.removeFromSuperview()
+            self.popUpImage = nil
+        }
     }
     
 }
@@ -105,10 +136,12 @@ extension ViewController: UITableViewDataSource {
         
         setupUserSection(cell: cell, user: viewPost.user)
         
+        cell.selectionStyle = .none
+        
         return cell
     }
     
-    func setupUserSection(cell: PostCell, user: User) {
+    private func setupUserSection(cell: PostCell, user: User) {
         if let url = URL(string: user.profilePic) {
             cell.profileImg.kf.setImage(with: url)
         } else {
@@ -118,16 +151,17 @@ extension ViewController: UITableViewDataSource {
         cell.userEmailLbl.text = user.email
     }
     
-    func setupSingleImageCell(cell: SingleImageCell, post: ViewPost) {
+    private func setupSingleImageCell(cell: SingleImageCell, post: ViewPost) {
         cell.dateLbl.text = StringDateFormatter.applyFormat(date: post.date)
         if let url = URL(string: post.pics.first!) {
             cell.mainImg.kf.setImage(with: url)
         } else {
             cell.mainImg.image = nil
         }
+        cell.delegate = self
     }
     
-    func setupTwoImagesCell(cell: TwoImagesCell, post: ViewPost) {
+    private func setupTwoImagesCell(cell: TwoImagesCell, post: ViewPost) {
         cell.dateLbl.text = StringDateFormatter.applyFormat(date: post.date)
         guard let leftImageUrl = URL(string: post.pics[0]),
               let rightImageUrl = URL(string: post.pics[1]) else {
@@ -135,9 +169,10 @@ extension ViewController: UITableViewDataSource {
         }
         cell.leftImage.kf.setImage(with: leftImageUrl)
         cell.rightImage.kf.setImage(with: rightImageUrl)
+        cell.delegate = self
     }
     
-    func setupThreeImagesCell(cell: ThreeImagesCell, post: ViewPost) {
+    private func setupThreeImagesCell(cell: ThreeImagesCell, post: ViewPost) {
         cell.dateLbl.text = StringDateFormatter.applyFormat(date: post.date)
         guard let topImageUrl = URL(string: post.pics[0]),
               let bottomLeftImg = URL(string: post.pics[1]),
@@ -147,21 +182,27 @@ extension ViewController: UITableViewDataSource {
         cell.topImage.kf.setImage(with: topImageUrl)
         cell.bottomLeftImg.kf.setImage(with: bottomLeftImg)
         cell.bottomRightImg.kf.setImage(with: bottomRightImg)
+        cell.delegate = self
     }
     
-    func setupMoreImagesCell(cell: MoreImagesCell, post: ViewPost) {
+    private func setupMoreImagesCell(cell: MoreImagesCell, post: ViewPost) {
         cell.dateLbl.text = StringDateFormatter.applyFormat(date: post.date)
         guard let topImageUrl = URL(string: post.pics[0]) else {
             return
         }
         cell.topImage.kf.setImage(with: topImageUrl)
         cell.setBottomImages(imageURLs: Array(post.pics[1..<post.pics.count]))
+        cell.delegate = self
     }
     
 }
 
-// MARK: - Table view delegate
+// MARK: - Image selection delegate
 
-extension ViewController: UITableViewDelegate {
+extension ViewController: ImageSelectionDelegate {
+    
+    func imageWasSelected(image: UIImage) {
+        popImage(image: image)
+    }
     
 }
