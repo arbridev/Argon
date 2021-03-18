@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     var viewPosts: [ViewPost]?
     var popUpImage: UIView?
     var popUpImageSwipeGesture: UISwipeGestureRecognizer!
+    var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -35,21 +36,15 @@ class ViewController: UIViewController {
         tableView.register(UINib(nibName: "\(MoreImagesCell.self)", bundle: nil), forCellReuseIdentifier: "\(MoreImagesCell.self)")
         
         tableView.dataSource = self
+        
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        network.getAppData { (appData) in
-            guard let appData = appData else {
-                return
-            }
-            
-            appData.users.forEach({ (user) in
-                self.persistence.add(user: user)
-            })
-            self.viewPosts = self.extractViewPosts(fromUsers: appData.users)
-        }
+        fetchData(completion: nil)
         
         self.viewPosts = extractViewPosts(fromUsers: persistence.getUsers())
         self.tableView.reloadData()
@@ -68,6 +63,22 @@ class ViewController: UIViewController {
             $0.date > $1.date
         }
         return sortedViewPosts
+    }
+    
+    func fetchData(completion: ((_ success: Bool) -> ())?) {
+        network.getAppData { (appData) in
+            guard let appData = appData else {
+                completion?(false)
+                return
+            }
+            
+            appData.users.forEach({ (user) in
+                self.persistence.add(user: user)
+            })
+            self.viewPosts = self.extractViewPosts(fromUsers: appData.users)
+            self.tableView.reloadData()
+            completion?(true)
+        }
     }
     
     func popImage(image: UIImage) {
@@ -97,6 +108,12 @@ class ViewController: UIViewController {
         } completion: { (completed) in
             self.popUpImage?.removeFromSuperview()
             self.popUpImage = nil
+        }
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        fetchData { (success) in
+            self.refreshControl.endRefreshing()
         }
     }
     
