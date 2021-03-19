@@ -13,6 +13,8 @@ class MoreImagesCell: UITableViewCell, PostCell {
     var tapGesture: UITapGestureRecognizer!
     var delegate: ImageSelectionDelegate?
 
+    @IBOutlet weak var userSection: UIView!
+    @IBOutlet weak var userSectionHeight: NSLayoutConstraint!
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var userEmailLbl: UILabel!

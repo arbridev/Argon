@@ -12,6 +12,8 @@ class ThreeImagesCell: UITableViewCell, PostCell {
     var tapGestures: [UITapGestureRecognizer]!
     var delegate: ImageSelectionDelegate?
     
+    @IBOutlet weak var userSection: UIView!
+    @IBOutlet weak var userSectionHeight: NSLayoutConstraint!
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var userEmailLbl: UILabel!

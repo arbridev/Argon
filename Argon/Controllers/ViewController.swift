@@ -59,10 +59,7 @@ class ViewController: UIViewController {
                 viewPosts.append(viewPost)
             }
         }
-        let sortedViewPosts = viewPosts.sorted {
-            $0.date > $1.date
-        }
-        return sortedViewPosts
+        return viewPosts
     }
     
     func fetchData(completion: ((_ success: Bool) -> ())?) {
@@ -151,7 +148,12 @@ extension ViewController: UITableViewDataSource {
             setupMoreImagesCell(cell: cell as! MoreImagesCell, post: viewPost)
         }
         
-        setupUserSection(cell: cell, user: viewPost.user)
+        if isFirstUserPost(row: indexPath.row) {
+            cell.omitUserSection(false)
+            setupUserSection(cell: cell, user: viewPost.user)
+        } else {
+            cell.omitUserSection(true)
+        }
         
         cell.selectionStyle = .none
         
@@ -210,6 +212,15 @@ extension ViewController: UITableViewDataSource {
         cell.topImage.kf.setImage(with: topImageUrl)
         cell.setBottomImages(imageURLs: Array(post.pics[1..<post.pics.count]))
         cell.delegate = self
+    }
+    
+    private func isFirstUserPost(row: Int) -> Bool {
+        guard row > 0 else {
+            return true
+        }
+        let currentPost = viewPosts?[row]
+        let previousPost = viewPosts?[row - 1]
+        return currentPost?.user.uid != previousPost?.user.uid
     }
     
 }
